@@ -28,6 +28,7 @@ header {
 header h1, header h2, header h3 {
   margin: 0;
   line-height: 1.2;
+  text-align: right;
 }
 
 .lang-switch {
@@ -72,4 +73,5 @@ footer {
   background: #222;
   color: white;
 }
+
 
