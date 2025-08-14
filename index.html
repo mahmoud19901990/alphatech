@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אלפאטק מחשבים ומסחר</title>
+  <title>אלפאטק מחשבים ומסחר | AlphaTech Computers & Trading | ألفاتك للحواسيب والتجارة</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>אלפאטק מחשבים ומסחר</h1>
+    <div class="logo-title">
+      <img src="logo.png" alt="לוגו אלפאטק" class="logo" />
+      <div>
+        <h1>אלפאטק מחשבים ומסחר</h1>
+        <h2>AlphaTech Computers & Trading</h2>
+        <h3>ألفاتك للحواسيب والتجارة</h3>
+      </div>
+    </div>
     <p>פתרונות מחשוב מתקדמים במחירים מעולים</p>
   </header>
 
+  <nav class="lang-switch">
+    <button onclick="setLanguage('he')">עברית</button>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('ar')">العربية</button>
+  </nav>
+
   <main>
-    <section>
+    <!-- Hebrew -->
+    <section class="lang he">
       <h2>אודותינו</h2>
       <p>
         ב"אלפאטק מחשבים ומסחר" אנו מתמחים במכירת מחשבים, ציוד היקפי, ושירותי טכנולוגיה לעסקים ופרטיים.
         אנו מציעים מוצרים איכותיים, שירות מהיר ומחירים הוגנים.
       </p>
-    </section>
-
-    <section>
       <h2>המוצרים שלנו</h2>
       <ul>
         <li>מחשבים נייחים וניידים</li>
@@ -29,24 +40,65 @@
         <li>ציוד רשת ואביזרים</li>
         <li>תיקון ושדרוג מחשבים</li>
       </ul>
+      <h2>צור קשר</h2>
+      <p>טלפון: <a href="tel:026277030">02-6277030</a></p>
+      <p>אימייל: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a></p>
+      <p>כתובת: דרך יריחו 209, ירושלים</p>
     </section>
 
-    <section>
-      <h2>צור קשר</h2>
-      <p>טלפון: <a href="tel:026277030">026277030</a></p>
-      <p>אימייל: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a></p>
-      <p>כתובת: דרך יריחו 209
-ירושלים</p>
+    <!-- English -->
+    <section class="lang en" style="display:none;" dir="ltr">
+      <h2>About Us</h2>
+      <p>
+        At AlphaTech Computers & Trading, we specialize in selling computers, peripherals, and technology services for businesses and individuals.
+        We offer high-quality products, fast service, and fair prices.
+      </p>
+      <h2>Our Products</h2>
+      <ul>
+        <li>Desktop and Laptop Computers</li>
+        <li>Monitors and Peripherals</li>
+        <li>Networking Equipment and Accessories</li>
+        <li>Computer Repairs and Upgrades</li>
+      </ul>
+      <h2>Contact</h2>
+      <p>Phone: <a href="tel:026277030">02-6277030</a></p>
+      <p>Email: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a></p>
+      <p>Address: Derech Yericho 209, Jerusalem</p>
+    </section>
+
+    <!-- Arabic -->
+    <section class="lang ar" style="display:none;" dir="rtl">
+      <h2>من نحن</h2>
+      <p>
+        في "ألفاتك للحواسيب والتجارة" نحن متخصصون في بيع الحواسيب، المعدات الطرفية، وخدمات التكنولوجيا للشركات والأفراد.
+        نقدم منتجات عالية الجودة، خدمة سريعة، وأسعار عادلة.
+      </p>
+      <h2>منتجاتنا</h2>
+      <ul>
+        <li>حواسيب مكتبية ومحمولة</li>
+        <li>شاشات ومعدات طرفية</li>
+        <li>معدات الشبكات والإكسسوارات</li>
+        <li>صيانة وترقية الحواسيب</li>
+      </ul>
+      <h2>اتصل بنا</h2>
+      <p>هاتف: <a href="tel:026277030">02-6277030</a></p>
+      <p>البريد الإلكتروني: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a></p>
+      <p>العنوان: طريق أريحا 209، القدس</p>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> אלפאטק מחשבים ומסחר. כל הזכויות שמורות.</p>
+    <p>© <span id="year"></span> אלפאטק מחשבים ומסחר | AlphaTech Computers & Trading | ألفاتك للحواسيب والتجارة</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(section => {
+        section.style.display = section.classList.contains(lang) ? 'block' : 'none';
+      });
+    }
   </script>
 </body>
-
 </html>
