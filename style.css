@@ -35,17 +35,16 @@ header h1, header h2, header h3 {
   margin: 1rem 0;
 }
 
-.lang-switch button {
+.lang-switch a {
   margin: 0 5px;
   padding: 0.5rem 1rem;
-  border: none;
   background: #0078D4;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
   border-radius: 4px;
 }
 
-.lang-switch button:hover {
+.lang-switch a:hover {
   background: #005fa3;
 }
 
@@ -73,3 +72,4 @@ footer {
   background: #222;
   color: white;
 }
+
