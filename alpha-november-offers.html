@@ -103,28 +103,46 @@
   <footer>© 2025 AlphaTech | All rights reserved</footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#flipbook").turn({
-        width: "90vw",
-        height: "70vh",
-        autoCenter: true,
-        gradients: true,
-      });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+<script>
+  $(document).ready(function () {
+    function resizeFlipbook() {
+      // Calculate responsive size in pixels
+      const bookWidth = Math.min(window.innerWidth * 0.9, 500);
+      const bookHeight = window.innerHeight * 0.7;
 
-      $("#nextBtn").click(() => $("#flipbook").turn("next"));
-      $("#prevBtn").click(() => $("#flipbook").turn("previous"));
+      // Recreate or resize the flipbook properly
+      const $book = $("#flipbook");
+      if ($book.data("turn")) {
+        $book.turn("size", bookWidth, bookHeight);
+      } else {
+        $book.turn({
+          width: bookWidth,
+          height: bookHeight,
+          autoCenter: true,
+          gradients: true,
+        });
+      }
+    }
 
-      // Optional: Swipe gesture for mobile
-      let startX = 0;
-      $("#flipbook").on("touchstart", (e) => (startX = e.originalEvent.touches[0].clientX));
-      $("#flipbook").on("touchend", (e) => {
-        let endX = e.originalEvent.changedTouches[0].clientX;
-        if (endX - startX > 50) $("#flipbook").turn("previous");
-        else if (startX - endX > 50) $("#flipbook").turn("next");
-      });
+    // Initialize and resize on load
+    resizeFlipbook();
+    $(window).on("resize", resizeFlipbook);
+
+    // Button navigation
+    $("#nextBtn").click(() => $("#flipbook").turn("next"));
+    $("#prevBtn").click(() => $("#flipbook").turn("previous"));
+
+    // Swipe gestures for mobile
+    let startX = 0;
+    $("#flipbook").on("touchstart", (e) => (startX = e.originalEvent.touches[0].clientX));
+    $("#flipbook").on("touchend", (e) => {
+      let endX = e.originalEvent.changedTouches[0].clientX;
+      if (endX - startX > 50) $("#flipbook").turn("previous");
+      else if (startX - endX > 50) $("#flipbook").turn("next");
     });
-  </script>
+  });
+</script>
 </body>
 </html>
+
