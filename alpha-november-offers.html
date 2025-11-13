@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Alpha November Offers</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.css" />
   <style>
     body {
       margin: 0;
@@ -27,9 +26,8 @@
     }
 
     #flipbook {
-      width: 90vw;
-      max-width: 500px;
-      height: 70vh;
+      width: 320px;
+      height: 450px;
       margin: 1rem auto;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
       background: #fff;
@@ -102,47 +100,39 @@
 
   <footer>© 2025 AlphaTech | All rights reserved</footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-<script>
-  $(document).ready(function () {
-    function resizeFlipbook() {
-      // Calculate responsive size in pixels
-      const bookWidth = Math.min(window.innerWidth * 0.9, 500);
-      const bookHeight = window.innerHeight * 0.7;
+  <!-- ✅ jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- ✅ Turn.js (from reliable CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
 
-      // Recreate or resize the flipbook properly
-      const $book = $("#flipbook");
-      if ($book.data("turn")) {
-        $book.turn("size", bookWidth, bookHeight);
-      } else {
-        $book.turn({
-          width: bookWidth,
-          height: bookHeight,
+  <script>
+    $(document).ready(function () {
+      const $flipbook = $("#flipbook");
+
+      // Initialize flipbook after a small delay (ensures images loaded)
+      setTimeout(() => {
+        $flipbook.turn({
+          width: 320,
+          height: 450,
           autoCenter: true,
           gradients: true,
+          elevation: 50
         });
-      }
-    }
+      }, 300);
 
-    // Initialize and resize on load
-    resizeFlipbook();
-    $(window).on("resize", resizeFlipbook);
+      // Next / Prev button handlers
+      $("#nextBtn").click(() => $flipbook.turn("next"));
+      $("#prevBtn").click(() => $flipbook.turn("previous"));
 
-    // Button navigation
-    $("#nextBtn").click(() => $("#flipbook").turn("next"));
-    $("#prevBtn").click(() => $("#flipbook").turn("previous"));
-
-    // Swipe gestures for mobile
-    let startX = 0;
-    $("#flipbook").on("touchstart", (e) => (startX = e.originalEvent.touches[0].clientX));
-    $("#flipbook").on("touchend", (e) => {
-      let endX = e.originalEvent.changedTouches[0].clientX;
-      if (endX - startX > 50) $("#flipbook").turn("previous");
-      else if (startX - endX > 50) $("#flipbook").turn("next");
+      // Swipe gestures for mobile
+      let startX = 0;
+      $flipbook.on("touchstart", (e) => (startX = e.originalEvent.touches[0].clientX));
+      $flipbook.on("touchend", (e) => {
+        let endX = e.originalEvent.changedTouches[0].clientX;
+        if (endX - startX > 50) $flipbook.turn("previous");
+        else if (startX - endX > 50) $flipbook.turn("next");
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
-
