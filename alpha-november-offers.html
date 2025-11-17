@@ -50,6 +50,33 @@
       background: #aaa;
       cursor: not-allowed;
     }
+    .social-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.social-buttons a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  text-decoration: none;
+}
+
+.social-buttons a img {
+  width: 28px;
+  height: 28px;
+}
+
     @media (max-width: 600px) {
       button {
         font-size: 14px;
@@ -144,13 +171,33 @@
     document.getElementById('prev-page').addEventListener('click', showPrevPage);
     document.getElementById('next-page').addEventListener('click', showNextPage);
   </script>
-  <a class="whatsapp-btn" 
-   href="https://wa.me/972548838689" 
-   target="_blank">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" />
-   تواصل معنا
-</a>
+
+
+  <div class="social-buttons">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/972548838689" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/alphatech.computers" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" />
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/alphatechcomputers" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" />
+  </a>
+
+  <!-- TikTok (optional) -->
+  <a href="https://www.tiktok.com/@alphatech.computers" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" />
+  </a>
+
+</div>
 </body>
 </html>
+
 
 
