@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,479 +7,320 @@
   <title>MST Attendance Privacy Policy | AlphaTech Computers</title>
   <style>
     :root {
-      --bg: #f7f8fa;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
+      --bg:#f7f8fa; --card:#fff; --text:#1f2937; --muted:#6b7280;
+      --border:#e5e7eb; --accent:#2563eb; --accent-soft:#eff6ff;
     }
-
-    * { box-sizing: border-box; }
-
+    * { box-sizing:border-box; }
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.7;
     }
-
-    .container {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 40px 20px 64px;
+    .container { max-width:920px; margin:auto; padding:32px 20px 64px; }
+    .toolbar {
+      display:flex; justify-content:flex-end; align-items:center; gap:10px;
+      margin-bottom:16px; flex-wrap:wrap;
     }
-
+    .toolbar span { color:var(--muted); font-size:.92rem; }
+    .language-switcher {
+      display:flex; padding:4px; gap:4px; background:#fff;
+      border:1px solid var(--border); border-radius:10px;
+    }
+    .language-switcher button {
+      appearance:none; border:0; background:transparent; color:var(--text);
+      padding:8px 13px; border-radius:7px; cursor:pointer; font-size:.92rem;
+    }
+    .language-switcher button.active { background:var(--accent); color:#fff; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.04);
+      background:var(--card); border:1px solid var(--border); border-radius:16px;
+      padding:40px; box-shadow:0 8px 24px rgba(0,0,0,.04);
     }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2rem;
-      line-height: 1.2;
-    }
-
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.25rem;
-    }
-
-    h3 {
-      margin-top: 1.5rem;
-      font-size: 1.05rem;
-    }
-
-    p, li {
-      font-size: 1rem;
-    }
-
-    ul {
-      padding-left: 1.4rem;
-    }
-
-    .meta {
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
+    h1 { margin-top:0; font-size:2rem; line-height:1.25; }
+    h2 { margin-top:2rem; font-size:1.25rem; }
+    h3 { margin-top:1.5rem; font-size:1.05rem; }
+    ul { padding-inline-start:1.4rem; }
+    .meta { color:var(--muted); margin-bottom:2rem; }
     .highlight {
-      background: #eff6ff;
-      border-left: 4px solid var(--accent);
-      padding: 16px 18px;
-      border-radius: 8px;
-      margin: 1.5rem 0;
+      background:var(--accent-soft); border-inline-start:4px solid var(--accent);
+      padding:16px 18px; border-radius:8px; margin:1.5rem 0;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
     footer {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .95rem;
+      margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border);
+      color:var(--muted); font-size:.95rem;
     }
-
-    @media (max-width: 640px) {
-      .container { padding: 20px 12px 40px; }
-      .card { padding: 24px 18px; border-radius: 12px; }
-      h1 { font-size: 1.65rem; }
+    .policy { display:none; }
+    .policy.active { display:block; }
+    [dir="rtl"] { text-align:right; }
+    @media(max-width:640px) {
+      .container{padding:16px 12px 40px}
+      .card{padding:24px 18px;border-radius:12px}
+      h1{font-size:1.6rem}
+      .toolbar{justify-content:center}
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <article class="card">
+<main class="container">
+  <div class="toolbar">
+    <span id="languageLabel">Language:</span>
+    <div class="language-switcher" role="group" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active">English</button>
+      <button type="button" data-lang="ar">العربية</button>
+      <button type="button" data-lang="he">עברית</button>
+    </div>
+  </div>
+
+  <article class="card">
+
+    <section id="policy-en" class="policy active" lang="en" dir="ltr">
       <h1>Privacy Policy – MST Attendance</h1>
-
-      <div class="meta">
-        <strong>Effective Date:</strong> August 10, 2026<br />
-        <strong>Last Updated:</strong> August 10, 2026
-      </div>
-
-      <p>
-        MST Attendance (“the App”) is an employee attendance application designed
-        to allow employees to securely record their attendance and allow authorized
-        managers to manage attendance-related information.
-      </p>
-
-      <p>
-        We respect your privacy and are committed to protecting the personal
-        information processed through MST Attendance. This Privacy Policy explains
-        what information the App collects, why it is collected, how it is used,
-        and the choices available to users.
-      </p>
+      <div class="meta"><strong>Effective Date:</strong> August 10, 2026<br><strong>Last Updated:</strong> August 10, 2026</div>
+      <p>MST Attendance (“the App”) is an employee attendance application designed to allow employees to securely record their attendance and allow authorized managers to manage attendance-related information.</p>
+      <p>We respect your privacy and are committed to protecting the personal information processed through MST Attendance. This Privacy Policy explains what information the App collects, why it is collected, how it is used, and the choices available to users.</p>
 
       <h2>1. Information We Collect</h2>
-
       <h3>Account Information</h3>
-      <p>MST Attendance does not provide public user registration.</p>
-
-      <p>
-        Employee accounts are created or provided by the employee's organization
-        or authorized manager. When you sign in, the App may process information
-        associated with your employee account, including:
-      </p>
-
-      <ul>
-        <li>Name and employee/account identifier</li>
-        <li>Username</li>
-        <li>Assigned roles and permissions</li>
-        <li>Assigned workplace or attendance areas</li>
-        <li>Authentication information necessary to sign in securely</li>
-      </ul>
-
-      <p>
-        Authentication credentials are used only for accessing the authorized
-        MST Attendance account and related services.
-      </p>
-
+      <p>MST Attendance does not provide public user registration. Employee accounts are created or provided by the employee's organization or authorized manager.</p>
+      <ul><li>Name and employee/account identifier</li><li>Username</li><li>Assigned roles and permissions</li><li>Assigned workplace or attendance areas</li><li>Authentication information necessary to sign in securely</li></ul>
       <h3>Attendance Information</h3>
-      <p>
-        When you use MST Attendance, we process information necessary to maintain
-        attendance records, which may include:
-      </p>
-
-      <ul>
-        <li>Clock-in date and time</li>
-        <li>Clock-out date and time</li>
-        <li>Attendance status</li>
-        <li>Workplace or assigned attendance area</li>
-        <li>Attendance history</li>
-        <li>Location associated with a Clock In or Clock Out action</li>
-        <li>Information required to validate the attendance request</li>
-      </ul>
-
-      <p>
-        This information is used to provide attendance functionality to you and
-        your employer or organization.
-      </p>
+      <ul><li>Clock-in date and time</li><li>Clock-out date and time</li><li>Attendance status</li><li>Workplace or assigned attendance area</li><li>Attendance history</li><li>Location associated with a Clock In or Clock Out action</li><li>Information required to validate the attendance request</li></ul>
 
       <h2>2. Precise Location Information</h2>
-
-      <div class="highlight">
-        <strong>
-          MST Attendance uses your device's precise location only when it is
-          required to perform a Clock In or Clock Out operation.
-        </strong>
-      </div>
-
-      <p>
-        When you press <strong>Clock In</strong> or <strong>Clock Out</strong>,
-        the App may request your current GPS location and send the necessary
-        location information to the MST Attendance server.
-      </p>
-
+      <div class="highlight"><strong>MST Attendance uses your device's precise location only when it is required to perform a Clock In or Clock Out operation.</strong></div>
+      <p>When you press <strong>Clock In</strong> or <strong>Clock Out</strong>, the App may request your current GPS location and send the necessary location information to the MST Attendance server.</p>
       <p>The location is used to:</p>
-
-      <ul>
-        <li>Confirm that you are within a workplace or attendance area assigned to you.</li>
-        <li>Prevent unauthorized Clock In or Clock Out operations from locations outside the permitted area.</li>
-        <li>Associate the attendance action with the location where it was performed.</li>
-        <li>Help maintain accurate and secure attendance records.</li>
-      </ul>
-
+      <ul><li>Confirm that you are within a workplace or attendance area assigned to you.</li><li>Prevent unauthorized Clock In or Clock Out operations from outside the permitted area.</li><li>Associate the attendance action with the location where it was performed.</li><li>Help maintain accurate and secure attendance records.</li></ul>
       <p><strong>MST Attendance does not continuously track your location.</strong></p>
-
-      <p>
-        The App does not use continuous background location tracking to monitor
-        your movements. Your location is requested in connection with an
-        attendance action rather than continuously throughout your workday.
-      </p>
-
-      <p>
-        Location permission is therefore required when location verification is
-        necessary to complete a Clock In or Clock Out operation.
-      </p>
-
-      <p>
-        Authorized managers may also use location functionality when defining or
-        managing attendance areas.
-      </p>
+      <p>The App does not use continuous background location tracking to monitor your movements. Your location is requested in connection with an attendance action rather than continuously throughout your workday.</p>
+      <p>Authorized managers may also use location functionality when defining or managing attendance areas.</p>
 
       <h2>3. Fingerprint and Biometric Authentication</h2>
-
-      <p>
-        MST Attendance may use biometric authentication, such as your
-        <strong>fingerprint</strong>, to confirm a Clock In or Clock Out operation.
-      </p>
-
-      <p>
-        Biometric authentication provides an additional level of security and
-        helps confirm that the attendance action is being performed by the
-        authorized device user.
-      </p>
-
-      <p>
-        MST Attendance uses the biometric authentication capabilities provided
-        by your device's operating system.
-      </p>
-
-      <div class="highlight">
-        <strong>
-          MST Attendance does not receive or store your actual fingerprint or
-          biometric template.
-        </strong>
-      </div>
-
-      <p>
-        Your fingerprint or other biometric information remains managed by the
-        security system of your device. The App receives only the authentication
-        result needed to determine whether the biometric verification was successful.
-      </p>
-
-      <p>
-        Depending on the device and its configuration, device authentication such
-        as the device PIN, password, pattern, or passcode may also be used where supported.
-      </p>
+      <p>MST Attendance may use biometric authentication, such as your <strong>fingerprint</strong>, to confirm a Clock In or Clock Out operation.</p>
+      <p>Biometric authentication is performed using the authentication capabilities provided by your device's operating system.</p>
+      <div class="highlight"><strong>MST Attendance does not receive or store your actual fingerprint or biometric template.</strong></div>
+      <p>Your biometric information remains managed by your device. The App receives only the authentication result needed to determine whether verification was successful. Depending on the device, a PIN, password, pattern, or passcode may also be used where supported.</p>
 
       <h2>4. Device Information</h2>
-
-      <p>
-        To help protect attendance records and prevent unauthorized attendance
-        actions, MST Attendance may process limited information about the device
-        being used.
-      </p>
-
-      <p>This may include:</p>
-
-      <ul>
-        <li>Device identifier used by MST Attendance</li>
-        <li>Device platform or operating system</li>
-        <li>Application version</li>
-        <li>Registered-device status</li>
-        <li>Technical information required for security and troubleshooting</li>
-      </ul>
-
-      <p>
-        Device information may be used to determine whether an employee is using
-        an authorized or registered device.
-      </p>
+      <p>To help protect attendance records and prevent unauthorized attendance actions, MST Attendance may process limited device information, including:</p>
+      <ul><li>Device identifier used by MST Attendance</li><li>Device platform or operating system</li><li>Application version</li><li>Registered-device status</li><li>Technical information required for security and troubleshooting</li></ul>
 
       <h2>5. How We Use Information</h2>
-
-      <p>
-        Information collected through MST Attendance is used only as necessary
-        to operate, secure, and maintain the attendance service. This includes:
-      </p>
-
-      <ul>
-        <li>Authenticating users</li>
-        <li>Recording Clock In and Clock Out operations</li>
-        <li>Verifying attendance locations</li>
-        <li>Verifying biometric or device authentication</li>
-        <li>Maintaining employee attendance history</li>
-        <li>Validating assigned attendance areas</li>
-        <li>Enforcing employee and manager permissions</li>
-        <li>Detecting or preventing unauthorized attendance activity</li>
-        <li>Providing attendance information to authorized managers</li>
-        <li>Maintaining the security and reliability of the service</li>
-        <li>Troubleshooting technical problems</li>
-      </ul>
-
+      <ul><li>Authenticating users</li><li>Recording Clock In and Clock Out operations</li><li>Verifying attendance locations</li><li>Verifying biometric or device authentication</li><li>Maintaining employee attendance history</li><li>Validating assigned attendance areas</li><li>Enforcing employee and manager permissions</li><li>Detecting or preventing unauthorized attendance activity</li><li>Providing attendance information to authorized managers</li><li>Maintaining service security and reliability</li><li>Troubleshooting technical problems</li></ul>
       <p>We do not use precise location information to continuously monitor employees.</p>
 
       <h2>6. Manager and Employer Access</h2>
-
-      <p>MST Attendance is intended for use by organizations and their employees.</p>
-
-      <p>
-        Authorized managers or administrators may have access to information
-        necessary to manage employee attendance, including:
-      </p>
-
-      <ul>
-        <li>Employee attendance records</li>
-        <li>Clock-in and clock-out times</li>
-        <li>Attendance status</li>
-        <li>Attendance locations associated with attendance actions</li>
-        <li>Assigned attendance areas</li>
-        <li>Employee-to-area assignments</li>
-        <li>Registered-device information</li>
-        <li>Attendance history</li>
-      </ul>
-
-      <p>
-        Access depends on the permissions assigned to the manager or administrator.
-      </p>
-
-      <p>
-        Your employer or organization may also have its own policies regarding
-        employee attendance records and their retention.
-      </p>
+      <p>Authorized managers or administrators may have access to employee attendance records, Clock In and Clock Out times, attendance status, locations associated with attendance actions, assigned attendance areas, employee-area assignments, registered-device information, and attendance history, depending on their permissions.</p>
 
       <h2>7. Data Storage and Security</h2>
-
-      <p>
-        Attendance and account information may be transmitted securely to the
-        MST Attendance backend server and stored in the organization's attendance system.
-      </p>
-
-      <p>
-        We use reasonable technical and organizational measures designed to
-        protect information against unauthorized access, alteration, disclosure, or loss.
-      </p>
-
-      <p>
-        Authentication and authorization mechanisms are used to restrict access
-        to attendance information according to the user's account and permissions.
-      </p>
-
-      <p>
-        No electronic transmission or storage system can be guaranteed to be
-        completely secure, but reasonable safeguards are used to protect
-        information processed by the service.
-      </p>
+      <p>Attendance and account information may be transmitted securely to the MST Attendance backend server and stored in the organization's attendance system. We use reasonable technical and organizational measures designed to protect information against unauthorized access, alteration, disclosure, or loss.</p>
 
       <h2>8. Location Permissions</h2>
-
-      <p>You may control location permissions through your device settings.</p>
-
-      <p>
-        Because precise location verification is an important security feature of
-        MST Attendance, disabling location permission may prevent the App from
-        completing Clock In or Clock Out operations that require workplace
-        location verification.
-      </p>
-
-      <p>
-        MST Attendance does not require continuous location monitoring for normal
-        attendance operation.
-      </p>
+      <p>You may control location permissions through your device settings. Disabling location permission may prevent Clock In or Clock Out when workplace location verification is required. MST Attendance does not require continuous location monitoring for normal attendance operation.</p>
 
       <h2>9. Biometric Permissions</h2>
-
-      <p>
-        Biometric authentication is handled through the authentication features
-        provided by your device.
-      </p>
-
-      <p>
-        MST Attendance does not independently collect, store, or process your
-        fingerprint image or biometric template.
-      </p>
-
-      <p>
-        You can manage fingerprints, biometric authentication, and device security
-        settings through your device's operating system settings.
-      </p>
+      <p>Biometric authentication is handled by your device. MST Attendance does not independently collect, store, or process your fingerprint image or biometric template.</p>
 
       <h2>10. Data Sharing</h2>
-
-      <p>MST Attendance does not sell users' personal information.</p>
-
-      <p>
-        Attendance information is processed for the purpose of providing the
-        attendance service and may be accessible to the employer, organization,
-        managers, administrators, or authorized service operators as required to
-        provide and maintain the service.
-      </p>
-
-      <p>
-        Information may also be disclosed when required by applicable law,
-        regulation, legal process, or valid governmental request.
-      </p>
+      <p>MST Attendance does not sell users' personal information. Attendance information may be accessible to the employer, organization, managers, administrators, or authorized service operators as required to provide and maintain the service. Information may also be disclosed when required by applicable law or valid legal process.</p>
 
       <h2>11. Data Retention</h2>
-
-      <p>
-        Attendance information may be retained for as long as reasonably necessary
-        to provide the attendance service, maintain business and employment
-        records, comply with applicable legal requirements, resolve disputes, and
-        maintain system security.
-      </p>
-
-      <p>
-        The specific retention period may also depend on the policies and legal
-        obligations of the organization using MST Attendance.
-      </p>
+      <p>Attendance information may be retained for as long as reasonably necessary to provide the service, maintain business and employment records, comply with applicable legal requirements, resolve disputes, and maintain system security. Retention may also depend on the policies and legal obligations of the organization using MST Attendance.</p>
 
       <h2>12. Employee Privacy</h2>
-
-      <p>MST Attendance is designed to minimize location collection.</p>
-
-      <ul>
-        <li>The App does not continuously monitor an employee's location.</li>
-        <li>The App does not use location information to create a continuous history of an employee's movements.</li>
-        <li>Precise location is requested when required for Clock In or Clock Out verification.</li>
-        <li>Biometric verification is performed by the device's operating system.</li>
-        <li>Actual fingerprint or biometric templates are not stored by MST Attendance.</li>
-      </ul>
+      <ul><li>The App does not continuously monitor an employee's location.</li><li>The App does not create a continuous history of an employee's movements.</li><li>Precise location is requested when required for Clock In or Clock Out verification.</li><li>Biometric verification is performed by the device's operating system.</li><li>Actual fingerprint or biometric templates are not stored by MST Attendance.</li></ul>
 
       <h2>13. Children's Privacy</h2>
-
-      <p>
-        MST Attendance is a business and employee attendance application and is
-        not designed or intended for use by children.
-      </p>
-
-      <p>
-        The service is intended for authorized employees and managers of
-        organizations using MST Attendance.
-      </p>
+      <p>MST Attendance is a business and employee attendance application and is not designed or intended for use by children. It is intended for authorized employees and managers of organizations using MST Attendance.</p>
 
       <h2>14. Changes to This Privacy Policy</h2>
-
-      <p>
-        We may update this Privacy Policy from time to time to reflect changes to
-        MST Attendance, security practices, legal requirements, or the way
-        information is processed.
-      </p>
-
-      <p>
-        When the Privacy Policy is updated, the “Last Updated” date at the top of
-        this document will be changed accordingly.
-      </p>
+      <p>We may update this Privacy Policy to reflect changes to MST Attendance, security practices, legal requirements, or the way information is processed. The “Last Updated” date will be changed accordingly.</p>
 
       <h2>15. Contact Us</h2>
-
-      <p>
-        If you have questions, concerns, or requests regarding this Privacy Policy
-        or the handling of information through MST Attendance, please contact:
-      </p>
-
-      <p>
-        <strong>AlphaTech Computers</strong><br />
-        Jerusalem – Ras Al-Amud – Jericho Road 209<br />
-        Phone: <a href="tel:+97226277030">02-6277030</a><br />
-        Email: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a>
-      </p>
+      <p><strong>AlphaTech Computers</strong><br>Jerusalem – Ras Al-Amud – Jericho Road 209<br>Phone: <a href="tel:+97226277030">02-6277030</a><br>Email: <a href="mailto:info@alphatech.co.il">info@alphatech.co.il</a></p>
 
       <h2>MST Attendance – Location &amp; Biometric Privacy Summary</h2>
+      <div class="highlight"><p>MST Attendance uses <strong>precise location only when required to verify Clock In and Clock Out operations</strong>. The App <strong>does not continuously track employee location in the background</strong>.</p><p>Fingerprint or other supported biometric authentication may be used to authorize Clock In and Clock Out actions. Verification is performed by the device's operating system, and <strong>MST Attendance does not receive or store the user's actual fingerprint or biometric template</strong>.</p></div>
+      <footer>&copy; 2026 AlphaTech Computers. All rights reserved.</footer>
+    </section>
 
-      <div class="highlight">
-        <p>
-          MST Attendance uses <strong>precise location only when required to
-          verify Clock In and Clock Out operations</strong>. The App
-          <strong>does not continuously track employee location in the background</strong>.
-        </p>
+    <section id="policy-ar" class="policy" lang="ar" dir="rtl">
+      <h1>سياسة الخصوصية – MST Attendance</h1>
+      <div class="meta"><strong>تاريخ السريان:</strong> 10 أغسطس 2026<br><strong>آخر تحديث:</strong> 10 أغسطس 2026</div>
+      <p>MST Attendance ("التطبيق") هو تطبيق لإدارة حضور الموظفين، يتيح للموظفين تسجيل الحضور والانصراف بشكل آمن، كما يتيح للمديرين المخولين إدارة المعلومات المتعلقة بالحضور.</p>
+      <p>نحن نحترم خصوصيتك ونلتزم بحماية المعلومات الشخصية التي تتم معالجتها من خلال MST Attendance. توضح هذه السياسة المعلومات التي يعالجها التطبيق، وسبب استخدامها، وكيفية استخدامها.</p>
 
-        <p>
-          Fingerprint or other supported biometric authentication may be used to
-          authorize Clock In and Clock Out actions. Biometric verification is
-          performed by the device's operating system, and
-          <strong>MST Attendance does not receive or store the user's actual
-          fingerprint or biometric template</strong>.
-        </p>
-      </div>
+      <h2>1. المعلومات التي نعالجها</h2>
+      <h3>معلومات الحساب</h3>
+      <p>لا يوفر MST Attendance تسجيلًا عامًا للمستخدمين. يتم إنشاء حساب الموظف أو توفيره بواسطة المؤسسة أو المدير المخول.</p>
+      <ul><li>الاسم ومعرّف الموظف أو الحساب</li><li>اسم المستخدم</li><li>الأدوار والصلاحيات المخصصة</li><li>مكان العمل أو مناطق الحضور المخصصة</li><li>معلومات المصادقة اللازمة لتسجيل الدخول بشكل آمن</li></ul>
+      <h3>معلومات الحضور</h3>
+      <ul><li>تاريخ ووقت تسجيل الحضور</li><li>تاريخ ووقت تسجيل الانصراف</li><li>حالة الحضور</li><li>مكان العمل أو منطقة الحضور المخصصة</li><li>سجل الحضور</li><li>الموقع المرتبط بعملية تسجيل الحضور أو الانصراف</li><li>المعلومات اللازمة للتحقق من طلب الحضور</li></ul>
 
-      <footer>
-        &copy; 2026 AlphaTech Computers. All rights reserved.
-      </footer>
-    </article>
-  </main>
+      <h2>2. معلومات الموقع الدقيق</h2>
+      <div class="highlight"><strong>يستخدم MST Attendance الموقع الدقيق لجهازك فقط عند الحاجة لتنفيذ عملية تسجيل الحضور أو تسجيل الانصراف.</strong></div>
+      <p>عند الضغط على <strong>تسجيل الحضور</strong> أو <strong>تسجيل الانصراف</strong>، قد يطلب التطبيق موقع GPS الحالي ويرسل معلومات الموقع اللازمة إلى خادم MST Attendance.</p>
+      <p>يتم استخدام الموقع من أجل:</p>
+      <ul><li>التأكد من وجودك داخل مكان العمل أو منطقة الحضور المخصصة لك.</li><li>منع تسجيل الحضور أو الانصراف من خارج المنطقة المسموح بها.</li><li>ربط عملية الحضور بالموقع الذي تمت فيه.</li><li>المساعدة في الحفاظ على سجلات حضور دقيقة وآمنة.</li></ul>
+      <p><strong>لا يقوم MST Attendance بتتبع موقعك بشكل مستمر.</strong></p>
+      <p>لا يستخدم التطبيق تتبع الموقع المستمر في الخلفية لمراقبة تحركاتك. يتم طلب الموقع عند الحاجة لإجراء عملية حضور أو انصراف، وليس بشكل مستمر طوال يوم العمل.</p>
+      <p>قد يستخدم المديرون المخولون وظائف الموقع أيضًا عند تحديد أو إدارة مناطق الحضور.</p>
+
+      <h2>3. بصمة الإصبع والمصادقة البيومترية</h2>
+      <p>قد يستخدم MST Attendance المصادقة البيومترية، مثل <strong>بصمة الإصبع</strong>، لتأكيد عملية تسجيل الحضور أو الانصراف.</p>
+      <p>تتم المصادقة البيومترية باستخدام إمكانيات الأمان التي يوفرها نظام تشغيل جهازك.</p>
+      <div class="highlight"><strong>لا يستلم MST Attendance بصمة إصبعك الفعلية أو قالب البيانات البيومترية ولا يقوم بتخزينهما.</strong></div>
+      <p>تبقى معلومات البصمة والبيانات البيومترية تحت إدارة نظام الأمان في جهازك. يتلقى التطبيق فقط نتيجة المصادقة اللازمة لمعرفة ما إذا كانت عملية التحقق ناجحة. وقد يتم استخدام رمز PIN أو كلمة المرور أو النمط أو رمز الجهاز حيثما كان ذلك مدعومًا.</p>
+
+      <h2>4. معلومات الجهاز</h2>
+      <p>للمساعدة في حماية سجلات الحضور ومنع العمليات غير المصرح بها، قد يعالج التطبيق معلومات محدودة عن الجهاز، ومنها:</p>
+      <ul><li>معرّف الجهاز المستخدم بواسطة MST Attendance</li><li>نوع الجهاز أو نظام التشغيل</li><li>إصدار التطبيق</li><li>حالة تسجيل الجهاز</li><li>المعلومات التقنية اللازمة للأمان واستكشاف الأخطاء</li></ul>
+
+      <h2>5. كيفية استخدام المعلومات</h2>
+      <ul><li>مصادقة المستخدمين</li><li>تسجيل عمليات الحضور والانصراف</li><li>التحقق من موقع الحضور</li><li>التحقق من المصادقة البيومترية أو مصادقة الجهاز</li><li>الاحتفاظ بسجل حضور الموظف</li><li>التحقق من مناطق الحضور المخصصة</li><li>تطبيق صلاحيات الموظفين والمديرين</li><li>منع أو اكتشاف عمليات الحضور غير المصرح بها</li><li>توفير معلومات الحضور للمديرين المخولين</li><li>الحفاظ على أمان وموثوقية الخدمة</li><li>معالجة المشاكل التقنية</li></ul>
+      <p>لا نستخدم معلومات الموقع الدقيق لمراقبة الموظفين بشكل مستمر.</p>
+
+      <h2>6. وصول المدير وصاحب العمل</h2>
+      <p>قد يتمكن المديرون أو المسؤولون المخولون، حسب صلاحياتهم، من الوصول إلى سجلات الحضور وأوقات الحضور والانصراف وحالة الحضور والمواقع المرتبطة بعمليات الحضور ومناطق الحضور المخصصة ومعلومات الجهاز المسجل وسجل الحضور.</p>
+
+      <h2>7. تخزين البيانات وأمانها</h2>
+      <p>قد يتم نقل معلومات الحساب والحضور بشكل آمن إلى خادم MST Attendance وتخزينها في نظام الحضور الخاص بالمؤسسة. نستخدم إجراءات تقنية وتنظيمية معقولة تهدف إلى حماية المعلومات من الوصول أو التعديل أو الإفصاح أو الفقدان غير المصرح به.</p>
+
+      <h2>8. أذونات الموقع</h2>
+      <p>يمكنك التحكم في أذونات الموقع من إعدادات جهازك. قد يؤدي تعطيل إذن الموقع إلى منع تسجيل الحضور أو الانصراف عندما يكون التحقق من موقع العمل مطلوبًا. لا يتطلب MST Attendance مراقبة الموقع بشكل مستمر أثناء الاستخدام العادي.</p>
+
+      <h2>9. أذونات القياسات الحيوية</h2>
+      <p>تتم إدارة المصادقة البيومترية بواسطة جهازك. لا يقوم MST Attendance بجمع أو تخزين أو معالجة صورة بصمة إصبعك أو قالب بياناتك البيومترية بشكل مستقل.</p>
+
+      <h2>10. مشاركة البيانات</h2>
+      <p>لا يبيع MST Attendance المعلومات الشخصية للمستخدمين. قد تكون معلومات الحضور متاحة لصاحب العمل أو المؤسسة أو المديرين أو المسؤولين أو مشغلي الخدمة المخولين عند الحاجة لتقديم الخدمة وصيانتها. وقد يتم الإفصاح عن المعلومات إذا كان ذلك مطلوبًا بموجب القانون أو إجراء قانوني صالح.</p>
+
+      <h2>11. الاحتفاظ بالبيانات</h2>
+      <p>قد يتم الاحتفاظ بمعلومات الحضور طالما كان ذلك ضروريًا بشكل معقول لتقديم الخدمة، والاحتفاظ بسجلات العمل والتوظيف، والامتثال للمتطلبات القانونية، وحل النزاعات، والحفاظ على أمان النظام. وقد تعتمد مدة الاحتفاظ أيضًا على سياسات والتزامات المؤسسة المستخدمة للتطبيق.</p>
+
+      <h2>12. خصوصية الموظف</h2>
+      <ul><li>لا يراقب التطبيق موقع الموظف بشكل مستمر.</li><li>لا ينشئ التطبيق سجلًا مستمرًا لتحركات الموظف.</li><li>يتم طلب الموقع الدقيق عند الحاجة للتحقق من تسجيل الحضور أو الانصراف.</li><li>يتم التحقق البيومتري بواسطة نظام تشغيل الجهاز.</li><li>لا يقوم MST Attendance بتخزين بصمة الإصبع الفعلية أو قالب البيانات البيومترية.</li></ul>
+
+      <h2>13. خصوصية الأطفال</h2>
+      <p>MST Attendance هو تطبيق أعمال وحضور موظفين وليس مصممًا أو مخصصًا للاستخدام من قبل الأطفال. وهو مخصص للموظفين والمديرين المخولين في المؤسسات التي تستخدم MST Attendance.</p>
+
+      <h2>14. التغييرات على سياسة الخصوصية</h2>
+      <p>قد نقوم بتحديث هذه السياسة لتعكس التغييرات في التطبيق أو ممارسات الأمان أو المتطلبات القانونية أو طريقة معالجة المعلومات. وسيتم تحديث تاريخ "آخر تحديث" وفقًا لذلك.</p>
+
+      <h2>15. اتصل بنا</h2>
+      <p><strong>AlphaTech Computers</strong><br>القدس – رأس العامود – طريق أريحا 209<br>الهاتف: <a href="tel:+97226277030" dir="ltr">02-6277030</a><br>البريد الإلكتروني: <a href="mailto:info@alphatech.co.il" dir="ltr">info@alphatech.co.il</a></p>
+
+      <h2>ملخص خصوصية الموقع والبيانات البيومترية</h2>
+      <div class="highlight"><p>يستخدم MST Attendance <strong>الموقع الدقيق فقط عند الحاجة للتحقق من عمليات تسجيل الحضور والانصراف</strong>، ولا يقوم التطبيق <strong>بتتبع موقع الموظف بشكل مستمر في الخلفية</strong>.</p><p>قد تُستخدم بصمة الإصبع أو وسيلة بيومترية أخرى لتأكيد الحضور أو الانصراف. تتم عملية التحقق بواسطة نظام تشغيل الجهاز، و<strong>لا يستلم MST Attendance بصمة المستخدم الفعلية أو قالب البيانات البيومترية ولا يقوم بتخزينهما</strong>.</p></div>
+      <footer>&copy; 2026 AlphaTech Computers. جميع الحقوق محفوظة.</footer>
+    </section>
+
+    <section id="policy-he" class="policy" lang="he" dir="rtl">
+      <h1>מדיניות פרטיות – MST Attendance</h1>
+      <div class="meta"><strong>תאריך תחילה:</strong> 10 באוגוסט 2026<br><strong>עדכון אחרון:</strong> 10 באוגוסט 2026</div>
+      <p>MST Attendance ("האפליקציה") היא אפליקציה לניהול נוכחות עובדים, המאפשרת לעובדים לדווח כניסה ויציאה באופן מאובטח ולמנהלים מורשים לנהל מידע הקשור לנוכחות.</p>
+      <p>אנו מכבדים את פרטיותך ומחויבים להגנה על המידע האישי המעובד באמצעות MST Attendance. מדיניות זו מסבירה איזה מידע האפליקציה מעבדת, מדוע הוא נדרש וכיצד נעשה בו שימוש.</p>
+
+      <h2>1. מידע שאנו מעבדים</h2>
+      <h3>פרטי חשבון</h3>
+      <p>MST Attendance אינה מאפשרת הרשמה ציבורית. חשבונות עובדים נוצרים או מסופקים על ידי הארגון או מנהל מורשה.</p>
+      <ul><li>שם ומזהה עובד או חשבון</li><li>שם משתמש</li><li>תפקידים והרשאות שהוקצו</li><li>מקום עבודה או אזורי נוכחות שהוקצו</li><li>מידע הנדרש לאימות ולהתחברות מאובטחת</li></ul>
+      <h3>מידע נוכחות</h3>
+      <ul><li>תאריך ושעת כניסה</li><li>תאריך ושעת יציאה</li><li>סטטוס נוכחות</li><li>מקום העבודה או אזור הנוכחות שהוקצה</li><li>היסטוריית נוכחות</li><li>המיקום המשויך לפעולת כניסה או יציאה</li><li>מידע הנדרש לאימות פעולת הנוכחות</li></ul>
+
+      <h2>2. מידע על מיקום מדויק</h2>
+      <div class="highlight"><strong>MST Attendance משתמשת במיקום המדויק של המכשיר רק כאשר הוא נדרש לצורך ביצוע פעולת כניסה או יציאה.</strong></div>
+      <p>בעת לחיצה על <strong>כניסה</strong> או <strong>יציאה</strong>, האפליקציה עשויה לבקש את מיקום ה-GPS הנוכחי ולשלוח את פרטי המיקום הנדרשים לשרת MST Attendance.</p>
+      <p>המיקום משמש לצורך:</p>
+      <ul><li>אימות שהעובד נמצא במקום העבודה או באזור הנוכחות שהוקצה לו.</li><li>מניעת דיווח כניסה או יציאה מחוץ לאזור המותר.</li><li>שיוך פעולת הנוכחות למיקום שבו בוצעה.</li><li>סיוע בשמירה על רישומי נוכחות מדויקים ומאובטחים.</li></ul>
+      <p><strong>MST Attendance אינה עוקבת אחר מיקומך באופן רציף.</strong></p>
+      <p>האפליקציה אינה משתמשת במעקב רציף אחר מיקום ברקע לצורך מעקב אחר תנועותיך. המיקום מתבקש בהקשר של פעולת נוכחות ולא באופן רציף לאורך יום העבודה.</p>
+      <p>מנהלים מורשים עשויים להשתמש בפונקציות המיקום גם לצורך הגדרה או ניהול של אזורי נוכחות.</p>
+
+      <h2>3. טביעת אצבע ואימות ביומטרי</h2>
+      <p>MST Attendance עשויה להשתמש באימות ביומטרי, כגון <strong>טביעת אצבע</strong>, כדי לאשר פעולת כניסה או יציאה.</p>
+      <p>האימות הביומטרי מתבצע באמצעות יכולות האבטחה שמספקת מערכת ההפעלה של המכשיר.</p>
+      <div class="highlight"><strong>MST Attendance אינה מקבלת ואינה שומרת את טביעת האצבע בפועל או את התבנית הביומטרית שלך.</strong></div>
+      <p>המידע הביומטרי נשאר מנוהל על ידי מערכת האבטחה של המכשיר. האפליקציה מקבלת רק את תוצאת האימות הדרושה כדי לקבוע אם האימות הצליח. בהתאם למכשיר, ניתן להשתמש גם בקוד PIN, סיסמה, תבנית או קוד גישה כאשר הדבר נתמך.</p>
+
+      <h2>4. מידע על המכשיר</h2>
+      <p>כדי לסייע בהגנה על רישומי הנוכחות ולמנוע פעולות בלתי מורשות, MST Attendance עשויה לעבד מידע מוגבל על המכשיר, לרבות:</p>
+      <ul><li>מזהה מכשיר המשמש את MST Attendance</li><li>פלטפורמת המכשיר או מערכת ההפעלה</li><li>גרסת האפליקציה</li><li>סטטוס רישום המכשיר</li><li>מידע טכני הנדרש לאבטחה ולפתרון תקלות</li></ul>
+
+      <h2>5. כיצד אנו משתמשים במידע</h2>
+      <ul><li>אימות משתמשים</li><li>רישום פעולות כניסה ויציאה</li><li>אימות מיקום הנוכחות</li><li>אימות ביומטרי או אימות המכשיר</li><li>שמירת היסטוריית הנוכחות</li><li>אימות אזורי הנוכחות שהוקצו</li><li>אכיפת הרשאות עובדים ומנהלים</li><li>זיהוי או מניעה של פעולות נוכחות בלתי מורשות</li><li>הצגת מידע למנהלים מורשים</li><li>שמירה על אבטחת ואמינות השירות</li><li>פתרון בעיות טכניות</li></ul>
+      <p>איננו משתמשים במידע על מיקום מדויק לצורך מעקב רציף אחר עובדים.</p>
+
+      <h2>6. גישת מנהלים ומעסיקים</h2>
+      <p>מנהלים או מנהלי מערכת מורשים עשויים, בהתאם להרשאותיהם, לקבל גישה לרישומי נוכחות, זמני כניסה ויציאה, סטטוס נוכחות, מיקומים המשויכים לפעולות נוכחות, אזורי נוכחות שהוקצו, שיוך עובדים לאזורים, מידע על מכשירים רשומים והיסטוריית נוכחות.</p>
+
+      <h2>7. אחסון ואבטחת מידע</h2>
+      <p>מידע על החשבון והנוכחות עשוי להיות מועבר באופן מאובטח לשרת MST Attendance ולהישמר במערכת הנוכחות של הארגון. אנו משתמשים באמצעים טכניים וארגוניים סבירים שנועדו להגן על המידע מפני גישה, שינוי, חשיפה או אובדן בלתי מורשים.</p>
+
+      <h2>8. הרשאות מיקום</h2>
+      <p>ניתן לשלוט בהרשאות המיקום דרך הגדרות המכשיר. ביטול הרשאת המיקום עלול למנוע ביצוע כניסה או יציאה כאשר נדרש אימות מיקום מקום העבודה. MST Attendance אינה דורשת מעקב רציף אחר מיקום לצורך פעילות נוכחות רגילה.</p>
+
+      <h2>9. הרשאות ביומטריות</h2>
+      <p>האימות הביומטרי מטופל על ידי המכשיר. MST Attendance אינה אוספת, שומרת או מעבדת באופן עצמאי תמונת טביעת אצבע או תבנית ביומטרית.</p>
+
+      <h2>10. שיתוף מידע</h2>
+      <p>MST Attendance אינה מוכרת מידע אישי של משתמשים. מידע נוכחות עשוי להיות נגיש למעסיק, לארגון, למנהלים, למנהלי מערכת או למפעילי שירות מורשים כאשר הדבר נדרש לצורך אספקת השירות ותחזוקתו. מידע עשוי להימסר גם כאשר הדבר נדרש על פי דין או הליך משפטי תקף.</p>
+
+      <h2>11. שמירת מידע</h2>
+      <p>מידע נוכחות עשוי להישמר כל עוד הדבר נחוץ באופן סביר לצורך מתן השירות, שמירת רישומי עבודה והעסקה, עמידה בדרישות החוק, פתרון מחלוקות ושמירה על אבטחת המערכת. תקופת השמירה עשויה להיות תלויה גם במדיניות ובחובות המשפטיות של הארגון המשתמש ב-MST Attendance.</p>
+
+      <h2>12. פרטיות העובד</h2>
+      <ul><li>האפליקציה אינה עוקבת באופן רציף אחר מיקום העובד.</li><li>האפליקציה אינה יוצרת היסטוריה רציפה של תנועות העובד.</li><li>מיקום מדויק מתבקש כאשר הוא נדרש לאימות כניסה או יציאה.</li><li>האימות הביומטרי מתבצע על ידי מערכת ההפעלה של המכשיר.</li><li>MST Attendance אינה שומרת טביעת אצבע בפועל או תבנית ביומטרית.</li></ul>
+
+      <h2>13. פרטיות ילדים</h2>
+      <p>MST Attendance היא אפליקציה עסקית לניהול נוכחות עובדים ואינה מיועדת לשימוש על ידי ילדים. השירות מיועד לעובדים ולמנהלים מורשים בארגונים המשתמשים ב-MST Attendance.</p>
+
+      <h2>14. שינויים במדיניות הפרטיות</h2>
+      <p>אנו עשויים לעדכן מדיניות זו כדי לשקף שינויים ב-MST Attendance, נוהלי אבטחה, דרישות חוקיות או אופן עיבוד המידע. תאריך "עדכון אחרון" יעודכן בהתאם.</p>
+
+      <h2>15. יצירת קשר</h2>
+      <p><strong>AlphaTech Computers</strong><br>ירושלים – ראס אל-עמוד – דרך יריחו 209<br>טלפון: <a href="tel:+97226277030" dir="ltr">02-6277030</a><br>דוא"ל: <a href="mailto:info@alphatech.co.il" dir="ltr">info@alphatech.co.il</a></p>
+
+      <h2>תקציר פרטיות מיקום ואימות ביומטרי</h2>
+      <div class="highlight"><p>MST Attendance משתמשת <strong>במיקום מדויק רק כאשר הדבר נדרש לאימות פעולות כניסה ויציאה</strong>. האפליקציה <strong>אינה עוקבת באופן רציף אחר מיקום העובד ברקע</strong>.</p><p>ניתן להשתמש בטביעת אצבע או באמצעי ביומטרי נתמך אחר לצורך אישור פעולות כניסה ויציאה. האימות מתבצע על ידי מערכת ההפעלה של המכשיר, ו-<strong>MST Attendance אינה מקבלת ואינה שומרת את טביעת האצבע בפועל או את התבנית הביומטרית של המשתמש</strong>.</p></div>
+      <footer>&copy; 2026 AlphaTech Computers. כל הזכויות שמורות.</footer>
+    </section>
+  </article>
+</main>
+
+<script>
+(function () {
+  const buttons = document.querySelectorAll('[data-lang]');
+  const policies = document.querySelectorAll('.policy');
+  const label = document.getElementById('languageLabel');
+
+  function setLanguage(lang) {
+    policies.forEach(p => p.classList.toggle('active', p.id === 'policy-' + lang));
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+
+    const rtl = lang === 'ar' || lang === 'he';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+
+    label.textContent = lang === 'ar' ? 'اللغة:' : lang === 'he' ? 'שפה:' : 'Language:';
+
+    const titles = {
+      en: 'MST Attendance Privacy Policy | AlphaTech Computers',
+      ar: 'سياسة الخصوصية – MST Attendance | AlphaTech Computers',
+      he: 'מדיניות פרטיות – MST Attendance | AlphaTech Computers'
+    };
+    document.title = titles[lang];
+
+    try { localStorage.setItem('mst-policy-language', lang); } catch (e) {}
+  }
+
+  buttons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+
+  // English is always the default on first visit.
+  let saved = null;
+  try { saved = localStorage.getItem('mst-policy-language'); } catch (e) {}
+  setLanguage(['en','ar','he'].includes(saved) ? saved : 'en');
+})();
+</script>
 </body>
 </html>
